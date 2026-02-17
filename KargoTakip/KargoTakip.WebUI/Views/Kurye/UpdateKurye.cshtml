@@ -1,0 +1,54 @@
+﻿@model KargoTakip.WebUI.Dtos.UpdateKuryeDto
+
+@{
+    ViewData["Title"] = "Kurye Güncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h3 class="card-title">Kurye Düzenleme Paneli</h3>
+                </div>
+                <form asp-action="UpdateKurye" method="post">
+                    <div class="card-body">
+                        <input type="hidden" asp-for="KuryeId" />
+
+                        <div class="form-group mb-3">
+                            <label>Ad Soyad</label>
+                            <input type="text" asp-for="AdSoyad" class="form-control bg-secondary text-white border-0" placeholder="Kurye adını giriniz">
+                            <span asp-validation-for="AdSoyad" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Araç Tipi</label>
+                            <select asp-for="AracTipi" class="form-control bg-secondary text-white border-0">
+                                <option value="Motosiklet">Motosiklet</option>
+                                <option value="Panelvan">Panelvan</option>
+                                <option value="Bisiklet">Bisiklet</option>
+                                <option value="Otomobil">Otomobil</option>
+                            </select>
+                            <span asp-validation-for="AracTipi" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label>Durum</label>
+                            <select asp-for="Durum" class="form-control bg-secondary text-white border-0">
+                                <option value="Aktif">Aktif</option>
+                                <option value="İstirahatli">İstirahatli</option>
+                                <option value="İzinde">İzinde</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-footer text-right">
+                        <a href="/Kurye/Index" class="btn btn-outline-light">İptal</a>
+                        <button type="submit" class="btn btn-primary">Değişiklikleri Kaydet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

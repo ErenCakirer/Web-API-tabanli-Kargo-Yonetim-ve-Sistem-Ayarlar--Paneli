@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KargoTakip.API", "KargoTakip.API\KargoTakip.API.csproj", "{17BEB6F0-1E2B-4D18-8BC4-75E86AB703CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KargoTakip.Core", "KargoTakip.Core\KargoTakip.Core.csproj", "{96E4C0BC-98CE-4481-8C70-94E9E43BDF45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KargoTakip.Data", "KargoTakip.Data\KargoTakip.Data.csproj", "{9E7115F8-5589-45FC-A371-D353BDF93179}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KargoTakip.Business", "KargoTakip.Business\KargoTakip.Business.csproj", "{CC6A050A-2DAB-4D27-B41E-86982FB15DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KargoTakip.WebUI", "KargoTakip.WebUI\KargoTakip.WebUI.csproj", "{C2731A08-C0CE-4ADB-996B-BA5891312E77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17BEB6F0-1E2B-4D18-8BC4-75E86AB703CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17BEB6F0-1E2B-4D18-8BC4-75E86AB703CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17BEB6F0-1E2B-4D18-8BC4-75E86AB703CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17BEB6F0-1E2B-4D18-8BC4-75E86AB703CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E4C0BC-98CE-4481-8C70-94E9E43BDF45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E4C0BC-98CE-4481-8C70-94E9E43BDF45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E4C0BC-98CE-4481-8C70-94E9E43BDF45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E4C0BC-98CE-4481-8C70-94E9E43BDF45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E7115F8-5589-45FC-A371-D353BDF93179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7115F8-5589-45FC-A371-D353BDF93179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E7115F8-5589-45FC-A371-D353BDF93179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7115F8-5589-45FC-A371-D353BDF93179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6A050A-2DAB-4D27-B41E-86982FB15DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6A050A-2DAB-4D27-B41E-86982FB15DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6A050A-2DAB-4D27-B41E-86982FB15DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6A050A-2DAB-4D27-B41E-86982FB15DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2731A08-C0CE-4ADB-996B-BA5891312E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2731A08-C0CE-4ADB-996B-BA5891312E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2731A08-C0CE-4ADB-996B-BA5891312E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2731A08-C0CE-4ADB-996B-BA5891312E77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8C96602-4735-469F-B33D-AF2AEADA65E3}
+	EndGlobalSection
+EndGlobal

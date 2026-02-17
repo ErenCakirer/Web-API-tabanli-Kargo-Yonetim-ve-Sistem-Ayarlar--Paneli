@@ -1,0 +1,26 @@
+﻿@using KargoTakip.Core.Entities
+@model List<Mesaj>
+
+<div class="card direct-chat direct-chat-warning">
+    <div class="card-header">
+        <h3 class="card-title">Kargo Operasyon Mesajları</h3>
+    </div>
+    <div class="card-body">
+        <div class="direct-chat-messages">
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="direct-chat-msg @(item.IsRight ? "right" : "")">
+                        <div class="direct-chat-infos clearfix">
+                            <span class="direct-chat-name @(item.IsRight ? "float-right" : "float-left")">@item.GonderenAdSoyad</span>
+                            <span class="direct-chat-timestamp @(item.IsRight ? "float-left" : "float-right")">@item.Tarih.ToString("HH:mm")</span>
+                        </div>
+                        <img class="direct-chat-img" src="@item.ProfilFotoUrl" alt="Profil">
+                        <div class="direct-chat-text">@item.MesajIcerigi</div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

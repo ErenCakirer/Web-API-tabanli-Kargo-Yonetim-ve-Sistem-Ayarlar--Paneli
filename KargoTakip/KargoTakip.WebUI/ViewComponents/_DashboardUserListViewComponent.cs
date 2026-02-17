@@ -1,0 +1,34 @@
+﻿using KargoTakip.Core.Entities; // Kurye sınıfını tanıması için
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+
+namespace KargoTakip.WebUI.ViewComponents
+{
+    [ViewComponent(Name = "_DashboardUserList")]
+    public class _DashboardUserListViewComponent : ViewComponent
+    {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public _DashboardUserListViewComponent(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync() 
+        {
+            var client = _httpClientFactory.CreateClient();
+
+           
+            var responseMessage = await client.GetAsync("https://localhost:7245/api/Kurye");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<Kurye>>(jsonData);
+                return View(values); 
+            }
+
+            return View(new List<Kurye>()); 
+        }
+    }
+}

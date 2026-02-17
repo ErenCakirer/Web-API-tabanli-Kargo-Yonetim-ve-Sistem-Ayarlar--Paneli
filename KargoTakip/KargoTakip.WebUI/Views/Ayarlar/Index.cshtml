@@ -1,0 +1,46 @@
+﻿@model KargoTakip.WebUI.Dtos.ResultAyarlarDto
+
+<div class="container-fluid mt-4">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-cog mr-2"></i> Sistem Genel Ayarları</h3>
+        </div>
+        <form method="post" asp-action="Index" asp-controller="Ayarlar">
+            <div class="card-body">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Proje / Site İsmi</label>
+                            <input type="text" asp-for="Siteisim" class="form-control" placeholder="Örn: KargoTakip Pro">
+                        </div>
+                        <div class="form-group">
+                            <label>Genel Destek Hattı</label>
+                            <input type="text" asp-for="Destekhattı" class="form-control" placeholder="0850 ...">
+                        </div>
+                        <div class="form-group">
+                            <label>İletişim Mail Adresi</label>
+                            <input type="email" asp-for="Mail" class="form-control" placeholder="destek@kargo.com">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Şube İletişim Bilgileri</label>
+                            <textarea asp-for="Şubeiletişim" class="form-control" rows="3" placeholder="İstanbul: 0212..., Ankara: 0312..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Mesai / Çalışma Saatleri</label>
+                            <input type="text" asp-for="MesaiSaatleri" class="form-control" placeholder="Hafta içi: 09:00 - 18:00">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                <button type="submit" class="btn btn-primary px-4">
+                    <i class="fas fa-save mr-1"></i> Ayarları Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

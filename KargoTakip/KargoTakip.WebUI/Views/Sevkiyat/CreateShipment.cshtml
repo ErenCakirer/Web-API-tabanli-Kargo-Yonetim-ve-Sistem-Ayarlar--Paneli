@@ -1,0 +1,59 @@
+﻿@model KargoTakip.WebUI.Dtos.ResultSevkiyatDto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Yeni Sevkiyat Oluştur</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Kargo Bilgilerini Giriniz</h3>
+        </div>
+        
+      
+        <form method="post">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Takip No</label>
+                 
+                    <input type="text" asp-for="TakipNo" class="form-control" placeholder="Örn: KR1005">
+                </div>
+                <div class="form-group">
+                    <label>Gönderen</label>
+                    <input type="text" asp-for="Gönderen" class="form-control" placeholder="Gönderen Ad Soyad">
+                </div>
+                <div class="form-group">
+                    <label>Alıcı</label>
+                    <input type="text" asp-for="Alıcı" class="form-control" placeholder="Alıcı Ad Soyad">
+                </div>
+                <div class="form-group">
+                    <label>Adres</label>
+                    <textarea asp-for="TeslimatAdresi" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Durum</label>
+                    <select asp-for="Durum" class="form-control">
+                        <option value="Hazırlanıyor">Hazırlanıyor</option>
+                        <option value="Yolda">Yolda</option>
+                        <option value="Teslim Edildi">Teslim Edildi</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Kargoyu Kaydet</button>
+                <a href="/Default/Index" class="btn btn-default">Vazgeç</a>
+            </div>
+        </form>
+    </div>
+</section>

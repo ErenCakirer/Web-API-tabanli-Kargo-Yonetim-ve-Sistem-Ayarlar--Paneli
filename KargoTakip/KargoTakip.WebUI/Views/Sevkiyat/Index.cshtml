@@ -1,0 +1,92 @@
+﻿@model List<KargoTakip.WebUI.Dtos.ResultKargoHareketDto>
+
+<div class="container mt-5">
+    <div class="card bg-dark text-white border-secondary">
+        <div class="card-header border-secondary d-flex justify-content-between align-items-center">
+            <h4><i class="fas fa-truck-loading me-2"></i>Kargo Takip Geçmişi</h4>
+            <div>
+                @if (Model.Any())
+                {
+                    <span class="badge bg-info text-dark me-2" style="font-size: 0.9rem;">
+                        Takip No: #@Model.FirstOrDefault()?.TakipKodu
+                    </span>
+                }
+                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalHareketEkle">
+                    <i class="fas fa-plus"></i> Durum Güncelle
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @if (Model == null || !Model.Any())
+            {
+                <div class="alert alert-info bg-dark text-info border-info text-center my-4">
+                    <i class="fas fa-info-circle me-2"></i> Bu kargoya ait henüz bir hareket kaydı bulunmamaktadır.
+                </div>
+            }
+            else
+            {
+                <div class="position-relative">
+                    <div class="position-absolute h-100 border-start border-primary border-3" style="left: 15px; top: 0;"></div>
+
+                    @foreach (var item in Model.OrderByDescending(x => x.Tarih))
+                    {
+                        <div class="mb-5 ms-4 position-relative">
+                            <div class="position-absolute rounded-circle bg-primary"
+                                 style="width: 16px; height: 16px; left: -31px; top: 5px;"></div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-info mb-1">@item.Durum</h5>
+                                <span class="badge bg-secondary">@item.Tarih.ToString("dd.MM.yyyy HH:mm")</span>
+                            </div>
+                            <p class="mb-0 text-white"><strong>Konum:</strong> @item.Istasyon</p>
+                            <p class="text-muted small mb-0">@item.Aciklama</p>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalHareketEkle" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-secondary">
+            <form method="post" action="/Sevkiyat/HareketEkle">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="modalLabel">Yeni Kargo Durumu Ekle</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="TakipKodu" value="@ViewContext.RouteData.Values["id"]" />
+
+                    <div class="mb-3">
+                        <label class="form-label text-info">İstasyon / Konum</label>
+                        <input type="text" name="Istasyon" class="form-control bg-secondary text-white border-0" placeholder="Örn: Tuzla Aktarma Merkezi" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-info">Kargo Durumu</label>
+                        <select name="Durum" class="form-select bg-secondary text-white border-0">
+                            <option value="Kabul Edildi">Kabul Edildi</option>
+                            <option value="Aktarma Merkezinde">Aktarma Merkezinde</option>
+                            <option value="Yolda">Yolda</option>
+                            <option value="Şubede">Şubede</option>
+                            <option value="Dağıtıma Çıktı">Dağıtıma Çıktı</option>
+                            <option value="Teslim Edildi">Teslim Edildi</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-info">Açıklama</label>
+                        <textarea name="Aciklama" class="form-control bg-secondary text-white border-0" rows="3" placeholder="Detaylı bilgi giriniz..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Vazgeç</button>
+                    <button type="submit" class="btn btn-primary">Hareketi Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
